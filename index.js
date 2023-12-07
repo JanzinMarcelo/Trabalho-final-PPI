@@ -67,7 +67,7 @@ function processaCadastroUsuario(requisicao, resposta){
                     Digite seu Email!
                 </div>
                 </div>`;
-                if(!requisicao.body.idade)
+                if(!requisicao.body.Idade)
                 {
                     conteudoResposta +=`<div>
                                     <p> class="text-danger">Por favor informe a idade!</p>
