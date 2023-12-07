@@ -91,6 +91,7 @@ function processaCadastroUsuario(requisicao, resposta){
                                 <p> class="text-danger">Por favor informe o nome de usuário!</p>
                                 </div>`;
              }
+             resposta.end(conteudoResposta);
     }
     else{
    const usuario = {
