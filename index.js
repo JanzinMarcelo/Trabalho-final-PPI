@@ -50,7 +50,7 @@ function processaCadastroUsuario(requisicao, resposta){
         <thead>
         <tr>
             <th>Nome</th>
-            <th>Sobrenome</th>
+            <th>idade</th>
             <th>Nome de Usuário</th>
         <tr>
         </thead>
@@ -60,7 +60,7 @@ function processaCadastroUsuario(requisicao, resposta){
             conteudoResposta+=`
             <tr>
                 <td>${usuario.nome}</td>
-                <td>${usuario.Sobrenome}</td>
+                <td>${usuario.idade}</td>
                 <td>${usuario.NomeUsuario}</td>
             </tr>
             `;
