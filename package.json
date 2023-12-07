@@ -1,0 +1,27 @@
+{
+  "name": "tarefa-4-ppi",
+  "version": "1.0.0",
+  "description": "Aula ppi",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/JanzinMarcelo/Tarefa-4-PPI.git)"
+  },
+  "keywords": [
+    "node",
+    "aprender",
+    "ppi"
+  ],
+  "author": "João Marcelo",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}
