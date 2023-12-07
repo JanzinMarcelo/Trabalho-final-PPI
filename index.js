@@ -30,6 +30,69 @@ app.use(express.urlencoded({ extended: true }));
 
 
 function processaCadastroUsuario(requisicao, resposta){
+    let conteudoResposta='';
+    if(!(requisicao.bodyNome && requisicao.bodySobrenome && requisicao.bodyNomeUsuario)){
+        resposta.status(400).send('Faltam dados do usuário!');
+        conteudoResposta =`
+        <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <form action="/cadastrarUsuario" method="POST" class="row g-3 needs-validation" novalidate>
+        <fieldset class="border p-2">
+            <legend>Cadastro de Usuário</legend>
+            <div class="col-md-4">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" >
+                <div class="invalid-feedback">
+                    Digite seu nome!
+                </div>
+            </div>
+        `;
+        if(!requisicao.body.nome){
+            conteudoResposta +=`<div>
+                                <p> class="text-danger">Por favor informe o nome!</p>
+                                </div>`;
+        } 
+        conteudoResposta +=`
+        <div class="col-md-4">
+                <label for="sobrenome" class="form-label">senha:</label>
+                <input type="text" class="form-control" id="idade" name="idade" >
+                <div class="invalid-feedback">
+                    Digite seu Email!
+                </div>
+                </div>`;
+                if(!requisicao.body.idade)
+                {
+                    conteudoResposta +=`<div>
+                                    <p> class="text-danger">Por favor informe a idade!</p>
+                                    </div>`;
+                }
+                conteudoResposta +=`
+                <div class="col-md-4">
+                <label for="username" class="form-label">Email:</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control" id="username" name="NomeUsuario" aria-describedby="inputGroupPrepend" >
+                    <div class="invalid-feedback">
+                        Digite seu nome de usuário!
+                    </div>
+                </div>
+            </div>
+                `;
+             if(!requisicao.body.NomeUsuario)
+             {
+                conteudoResposta +=`<div>
+                                <p> class="text-danger">Por favor informe o nome de usuário!</p>
+                                </div>`;
+             }
+    }
+    else{
    const usuario = {
     nome: requisicao.body.nome,
     Sobrenome: requisicao.body.Sobrenome,
@@ -37,7 +100,7 @@ function processaCadastroUsuario(requisicao, resposta){
 
    } 
    listaUsuarios.push(usuario);
-   let conteudoResposta =`
+    conteudoResposta =`
     <!DOCTYPE html>
     <head>
     <meta charset="UTF-8">
@@ -77,6 +140,7 @@ function processaCadastroUsuario(requisicao, resposta){
 
         `;
         resposta.send(conteudoResposta);
+    }
 }
 
 
