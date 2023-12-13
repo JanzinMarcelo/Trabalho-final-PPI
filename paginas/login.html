@@ -1,55 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        legend {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-    <form action="/login" method="POST" class="row g-3 needs-validation" novalidate>
+    <form action="/login" method="POST" class="row g-3 needs-validation" novalidate style="width: 300px;">
         <fieldset class="border p-2">
             <legend>Verificação de Login</legend>
-            <div class="col-md-4">
-                <label for="nome" class="form-label">Usuário:</label>
-                <input type="text" class="form-control" id="Usu" name="Usu" required>
-                <div class="invalid-feedback">
-                    Digite seu nome de Usuário!
-                </div>
+            <div>
+                <label for="Usu">Usuário:</label>
+                <input type="text" class="form-control" id="Usu" name="Usu" >
+                
             </div>
-            <div class="col-md-4">
-                <label for="sobrenome" class="form-label">Senha:</label>
-                <input type="password" class="form-control" id="Senha" name="Senha" required>
-                <div class="invalid-feedback">
-                    Digite sua Senha!
-                </div>
+            <div>
+                <label for="Senha">Senha:</label>
+                <input type="password" class="form-control" id="Senha" name="Senha" >
+               
             </div>
-            
-            <div class="col-12">
+            <div>
                 <button class="btn btn-primary mt-4" type="submit">Login</button>
             </div>
         </fieldset>
     </form>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   
-   <script>
-            (function () {
-    'use strict'
-
-    var forms = document.querySelectorAll('.needs-validation')
-    const form = forms[0];
-
-        form.addEventListener('submit', (event)=> {
-            if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-            }
-
-            form.classList.add('was-validated')
-        }, false)
-        })
-    ()
-    </script>
 </body>
+
 </html>
